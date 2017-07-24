@@ -4,22 +4,24 @@ This is a tool that will automatically collect public data about linkedin skills
 I do analysis on using this data here:
 http://shawntabrizi.com/linkedin/scraping-linkedin-topics-skills-data/
 
-How many topics are there total?
-
+### How many topics are there total?
+```
 len(data)
-
+```
+```
 33188
+```
 
 
 
 
-
-What are the most popular overall topics/skills?
-	
+### What are the most popular overall topics/skills?
+```	
 ordered_by_count = sorted(data, key=lambda k: k['count'] if isinstance(k['count'],int) else 0, reverse=True)
 for skill in ordered_by_count[:20]:
     print(skill['name'])
-
+```
+```
 Management - 69725749
 Microsoft - 55910552
 Office - 46632581
@@ -40,13 +42,13 @@ Development Management - 24207409
 Project Management - 23922491
 Marketing - 23047665
 Customer Service Management - 22856920
+```
 
 
 
 
-
-What are the top <Company> Skills?
-
+### What are the top <Company> Skills?
+```
 company = 'Microsoft'
 company_skills = []
 for skill in ordered_by_count:
@@ -57,8 +59,9 @@ for skill in ordered_by_count:
 order_by_company = sorted(company_skills, key=lambda k: k['companies'][company], reverse=True)
 for skill in order_by_company[:20]:
      print(skill['name'], "-", skill['companies'][company])
+```
 Microsoft
-
+```
 Cloud - 74817
 Cloud Computing - 74817
 Cloud-Computing - 74817
@@ -79,9 +82,9 @@ Software as a Service - 41450
 Program Management - 40749
 Business Intelligence - 39291
 C# - 39158
-
+```
 Google
-
+```
 Java - 23225
 Strategy - 22235
 Marketing - 21672
@@ -102,9 +105,9 @@ C Programming - 14460
 Online Marketing - 13925
 Online-Marketing - 13925
 Social Media Marketing - 12931
-
+```
 Amazon
-
+```
 Leadership - 44329
 Leadership Skills - 44329
 Microsoft Office - 42713
@@ -125,9 +128,9 @@ Data-driven Marketing - 18826
 Software Development - 18521
 Public Speaking - 17366
 C - 16813
-
+```
 Facebook
-
+```
 Digital Marketing - 4973
 Online Advertising - 4334
 Digital Strategy - 3399
@@ -148,13 +151,13 @@ Adwords - 1093
 Google AdWords - 1093
 Scalability - 1057
 Mobile Advertising - 919
+```
 
 
 
 
-
-What are the top interconnected skills?
-
+### What are the top interconnected skills?
+```
 skill_count = {}
 for topic in data:
     if topic['skills'] is not None:
@@ -172,7 +175,8 @@ for topic in data:
  
 for skill in sorted(skill_count, key=skill_count.get, reverse = True)[:20]:
     print(skill, "-", skill_count[skill])
-
+```
+```
 Microsoft Office - 11081
 Management - 8845
 Customer Service - 7010
@@ -193,3 +197,4 @@ Java - 1792
 Adobe Photoshop - 1555
 JavaScript - 1488
 Microsoft PowerPoint - 1483
+```

@@ -47,7 +47,7 @@ Customer Service Management - 22856920
 
 
 
-### What are the top <Company> Skills?
+### What are the top < Company > Skills?
 ```
 company = 'Microsoft'
 company_skills = []

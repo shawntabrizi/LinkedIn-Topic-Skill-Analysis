@@ -2,7 +2,7 @@
 This is a tool that will automatically collect public data about linkedin skills and topics, and do analysis on them.
 
 I do analysis on using this data here:
-http://shawntabrizi.com/linkedin/scraping-linkedin-topics-skills-data/
+http://shawntabrizi.com/code/scraping-linkedin-topics-skills-data/
 
 ### How many topics are there total?
 ```
